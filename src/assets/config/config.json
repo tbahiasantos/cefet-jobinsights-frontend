@@ -1,0 +1,13 @@
+{
+  "urlApi": "http://localhost:8080/jobinsights/api/v1/",
+  "regGridPorPagina": 10,
+  "encryptKey": "QM14Ws5VrKP7fPi0asdk",
+  "endpoints": {
+    "salvar": "/salvar",
+    "editar": "/editar",
+    "detalhar": "/detalhar",
+    "listar": "/listarTodos",
+    "excluir": "/excluir",
+    "buscar": "/buscar"
+  }
+}

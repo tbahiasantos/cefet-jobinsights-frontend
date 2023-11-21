@@ -1,0 +1,20 @@
+<div class="col-12 m-0 p-0 grid mt-8">
+    <div *ngFor="let empresa of empresas" class="col-12 field grid justify-content-center mt-2">
+        <div class="col-5 field grid shadow-2 p-3 border-round align-items-center justify-content-between cursor-pointer"
+            (click)="escolheuEmpresa(empresa)">
+            <div class="col-2 field">
+                <span>{{empresa.nome}}</span><br>
+                <span>{{nota(empresa)}}★</span>
+            </div>
+            <div class="col-3 field">
+                {{tamanho(empresa)}}
+            </div>
+            <div class="col-3 field">
+                {{avaliacoes(empresa)}}
+            </div>
+            <div class="col-3 field">
+                {{salarios(empresa)}}
+            </div>
+        </div>
+    </div>
+</div>

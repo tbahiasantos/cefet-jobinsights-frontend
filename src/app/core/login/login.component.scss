@@ -1,0 +1,11 @@
+.container {
+    height: 100vh; // Defina a altura do corpo para ocupar 100% da altura da tela
+
+    background: {
+        image: url("../../../assets/imagens/background/background_login_register.png");
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+        attachment: fixed;
+    }
+}

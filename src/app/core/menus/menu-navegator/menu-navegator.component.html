@@ -1,0 +1,22 @@
+<p-menubar [style]="{'height':'4rem'}" [model]="item" styleClass="border-none border-noround non-background">
+    <ng-template pTemplate="start">
+        <img src="../assets/imagens/background/background.png" class="cursor-pointer" height="40"
+            (click)="navegate('')" />
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div [formGroup]="form" class="relative w-full grid justify-content-end m-0 p-0">
+            <p-inputSwitch styleClass="p-0 m-0" [pTooltip]="getToolTipText()" formControlName="isBlackTheme"
+                (onChange)="changeTheme()">
+            </p-inputSwitch>
+            <span class="p-1 m-0 cursor-pointer text-900 hover:text-700 ml-5 mr-4">
+                <i class="fa-solid fa-user" pStyleClass=".user-menu" enterClass="hidden" enterActiveClass="fadein"
+                    leaveActiveClass="fadeout" leaveToClass="hidden" [hideOnOutsideClick]="true">
+                </i>
+            </span>
+            <div class="col-12 absolute user-menu hidden mt-5 top-0 mr-0 pr-0"
+                style="z-index: 99999999999999999999 !important;">
+                <app-menu-usuario></app-menu-usuario>
+            </div>
+        </div>
+    </ng-template>
+</p-menubar>

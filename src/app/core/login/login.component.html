@@ -1,0 +1,99 @@
+<!-- <div class="w-full grid justify-content-center align-items-center h-screen border-1 m-0 p-0">
+    <div class="field col-6 m-0 p-0" [formGroup]="form">
+        <label for="email1" class="block text-900 font-medium mb-2">Email</label>
+        <input id="email1" type="text" placeholder="Email address" pInputText class="w-full mb-3"
+            formControlName="email">
+
+        <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+        <input id="password1" type="password" placeholder="Password" pInputText class="w-full mb-3"
+            formControlName="senha">
+        <div class="grid align-items-center justify-content-between">
+            <div class="flex align-items-center">
+                <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
+                <label for="rememberme1" class="text-900">Remember me</label>
+            </div>
+            <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
+            <div class="col-12 field"></div>
+            <div class="col-6 field">
+                <button pButton pRipple label="Logar" class="w-full" (click)="login()"></button>
+            </div>
+            <div class="col-6 field">
+                <button pButton pRipple label="Cadastrar" class="w-full p-button-secondary"
+                    (click)="registrar()"></button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="w-full grid justify-content-center align-items-center m-0 p-0 mt-2 opacity-90" style="height: 90vh;">
+    <form [formGroup]="form" class="col-12 flex justify-content-center h-full">
+        <div class="field col-9 m-0 p-0 h-full">
+            <div class="col-12 h-full surface-ground flex flex-wrap shadow-2 p-0">
+                <div class="col-12 lg:col-6 p-4 lg:mb-0 lg:pb-0 bg-blue-50">
+                    <div class="col-12">
+                        <div class="flex justify-content-start align-items-center">
+                            <img src="../assets/imagens/background/background.png" height="50" />
+                            <span class="text-2xl font-light text-600">Cefet JobInsights</span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p-carousel [value]="itemsCarousel" indicatorstyleclass="hover:bg-primary-500" [numVisible]="1"
+                            [numScroll]="1" [showNavigators]="false" [autoplayInterval]="3000" [circular]="true">
+                            <ng-template let-itemCarousel pTemplate="item">
+                                <div class="text-center mb-6 ng-star-inserted">
+                                    <img alt="Image" class="mb-1 w-12" [src]="itemCarousel.urlImage">
+                                    <div class="mx-auto font-medium text-xl mb-4 text-blue-900">{{itemCarousel.titulo}}
+                                    </div>
+                                    <p class="m-0 text-blue-700 line-height-3">
+                                        {{itemCarousel.descricao}}
+                                    </p>
+                                </div>
+                            </ng-template>
+                        </p-carousel>
+                    </div>
+                </div>
+                <div class="col-12 lg:col-6 p-4 lg:p-7 lg:mb-0 lg:pb-0 surface-card">
+                    <div class="col-12">
+                        <span class="text-2xl font-medium text-900">Logar no Cefet Job Insights</span>
+                    </div>
+                    <div class="col-12 mt-3 mb-0 font-light text-sm">
+                        <p>
+                            Nossas boas-vindas ao Cefet JobInsights!
+                        </p>
+                    </div>
+                    <div class="col-12 mt-0">
+                        <p-divider layout="horizontal" styleClass="text-600 font-light text-sm" [align]="'center'">Login
+                        </p-divider>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="p-inputtext-sm" formControlName="username">
+                            <label for="">Login / Email</label>
+                        </span>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <span class="p-float-label">
+                            <p-password [toggleMask]="true" styleClass="w-full p-inputtext-sm p-input-icon-right"
+                                [feedback]="false" formControlName="senha">
+                            </p-password>
+                            <label>Senha</label>
+                        </span>
+                    </div>
+                    <div class="col-12 mt-3 mb-0">
+                        <button pButton class="p-button-raised p-button-success p-button-sm" [style]="{'width':'100%'}"
+                            label="Logar" (click)="logar()" [disabled]="!form.valid">
+                        </button>
+                    </div>
+                    <div class="col-12 mt-0">
+                        <p-divider layout="horizontal" styleClass="text-600 font-light text-sm" [align]="'center'">OU
+                        </p-divider>
+                    </div>
+                    <div class="col-12">
+                        <button pButton class="p-button-raised p-button-primary p-button-sm" [style]="{'width':'100%'}"
+                            label="Criar Conta">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
