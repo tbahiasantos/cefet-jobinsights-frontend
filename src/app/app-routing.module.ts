@@ -6,6 +6,7 @@ import { ParaEmpresasComponent } from './content/para-empresas/para-empresas.com
 import { ConfirmationComponent } from './core/confirmation/confirmation.component';
 import { LoginModule } from './core/login/login.module';
 import { RegisterModule } from './core/register/register.module';
+import { RegistrarEmpresasComponent } from './core/registrar-empresas/registrar-empresas.component';
 import { PageNotFoundComponent } from './infra/404/page-not-found.component';
 import { AlunoGuard } from './infra/guard/aluno.guard';
 import { AuthGuard } from './infra/guard/auth.guard';
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'para-empresas',
     component: ParaEmpresasComponent
+  },
+  {
+    path: 'para-empresas/registrar',
+    component: RegistrarEmpresasComponent
   },
   {
     path: '',

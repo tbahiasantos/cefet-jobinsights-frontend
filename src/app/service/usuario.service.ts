@@ -5,6 +5,7 @@ import { AppConfig } from "../app.config";
 import { AbstractComponentService } from "../core/crud/service/abstract-component-service.service";
 import { Cargo } from "../model/entity/cargo.model";
 import { Curso } from "../model/entity/curso.model";
+import { Empresa } from "../model/entity/empresa.model";
 import { Aluno, Usuario } from "../model/entity/usuario.model";
 
 @Injectable({
@@ -19,6 +20,11 @@ export class UsuarioService extends AbstractComponentService<Usuario> {
     salvarAluno(entity: Aluno): Observable<Aluno> {
         const url = this.urlApi + this.path + AppConfig.settings.endpoints.salvar + "/aluno";
         return this.http.post<Aluno>(url, entity);
+    }
+
+    salvarEmpresa(entity: Empresa): Observable<Empresa> {
+        const url = this.urlApi + this.path + AppConfig.settings.endpoints.salvar + "/empresa";
+        return this.http.post<Empresa>(url, entity);
     }
 
 }

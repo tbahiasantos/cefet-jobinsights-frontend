@@ -228,36 +228,11 @@ export class RegisterComponent {
       this.form.controls['nome'].setValue(nome);
     }
     if (this.form.get('idCargo')?.value === -1 && this.form.get('novoCargo')?.valid) {
-      this.criarNovoCargo({ id: 0, nome: this.form.get('novoCargo')?.value });
+      const cargo: Cargo = { id: 0, nome: this.form.get('novoCargo')?.value };
     }
     if (this.form.get('idCurso')?.value === -1 && this.form.get('novoCurso')?.valid) {
-      this.criarNovoCurso({ id: 0, nome: this.form.get('novoCurso')?.value });
+      const curso: Curso = { id: 0, nome: this.form.get('novoCurso')?.value }
     }
   }
-
-  private criarNovoCargo(cargo: Cargo) {
-    this.cargoService.salvar(cargo).subscribe(cargo => {
-      this.listaCargos.push(
-        {
-          label: cargo.nome,
-          value: cargo.id
-        }
-      );
-      this.form.get("idCargo")?.setValue(cargo.id);
-    })
-  }
-
-  private criarNovoCurso(curso: Curso) {
-    this.cursoService.salvar(curso).subscribe(curso => {
-      this.listaCursos.push(
-        {
-          label: curso.nome,
-          value: curso.id
-        }
-      );
-      this.form.get("idCurso")?.setValue(curso.id);
-    })
-  }
-
 
 }

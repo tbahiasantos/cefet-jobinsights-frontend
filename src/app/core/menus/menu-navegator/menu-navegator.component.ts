@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { MenuItem } from 'primeng/api';
 import { ThemeService } from 'src/app/infra/theme/theme.service';
@@ -16,10 +16,19 @@ export class MenuNavegatorComponent {
   item: MenuItem[] = ITEMS_MENU;
 
   readonly form: FormGroup;
+  showMenuUsuario: boolean = true;
 
   constructor(private themeService: ThemeService, private readonly router: Router) {
     this.form = new FormGroup({
       isBlackTheme: new FormControl(false)
+    });
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log(this.router.url);
+        this.showMenuUsuario = (
+          this.router.url !== "/para-empresas"
+          && this.router.url !== "/para-empresas/registrar");
+      }
     });
   }
 

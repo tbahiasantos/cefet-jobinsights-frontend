@@ -18,6 +18,7 @@ import { MensagensModule } from './infra/mensagens/mensagens.module';
 import { PageNotFoundComponent } from './infra/404/page-not-found.component';
 import { ConfirmationComponent } from './core/confirmation/confirmation.component';
 import { ParaEmpresasComponent } from './content/para-empresas/para-empresas.component';
+import { RegistrarEmpresasModule } from './core/registrar-empresas/registrar-empresas.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ParaEmpresasComponent } from './content/para-empresas/para-empresas.com
     ReactiveFormsModule,
     MenusModule,
     JwtModule,
-    MensagensModule
+    MensagensModule,
+    RegistrarEmpresasModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

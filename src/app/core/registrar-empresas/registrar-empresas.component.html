@@ -1,19 +1,22 @@
 <div class="w-full grid justify-content-center align-items-center m-0 p-0 mt-2">
     <form [formGroup]="form" class="col-12 mt-2 flex justify-content-center">
         <div class="field col-10 m-0 p-0">
-            <p-card styleClass="w-full border-round-xl opacity-90" header="Cadastro do Aluno">
-                <p-fieldset [legend]="'Dados do Aluno'" [toggleable]="true">
-                    <div [formGroup]="formNome" class="formgrid grid col-12 mt-2">
-                        <div class="col-6 field">
+            <p-card styleClass="w-full border-round-xl opacity-90" header="Cadastro da Empresa">
+                <p-fieldset [legend]="'Dados da Empresa'" [toggleable]="true">
+                    <div class="formgrid grid col-12 mt-2">
+                        <div class="col-8 field">
                             <span class="p-float-label">
                                 <input type="text" pInputText class="p-inputtext-sm" formControlName="nome">
-                                <label for="">Nome *</label>
+                                <label for="">Nome da empresa *</label>
                             </span>
                         </div>
-                        <div class="col-6 field">
+                        <div class="col-4 field">
                             <span class="p-float-label">
-                                <input type="text" pInputText class="p-inputtext-sm" formControlName="sobrenome">
-                                <label for="">Sobrenome *</label>
+                                <p-dropdown [options]="listaTamanhos" [placeholder]="'Tamanho da empresa'"
+                                    styleClass="p-inputtext-sm" inputId="dropdown-tam" formControlName="tamanho"
+                                    [showClear]="true">
+                                </p-dropdown>
+                                <label>Tamanho da empresa *</label>
                             </span>
                         </div>
                     </div>
@@ -29,15 +32,7 @@
                                 <p-inputMask styleClass="w-full p-inputtext-sm" formControlName="telefone"
                                     [mask]="'(99) 9999-9999'">
                                 </p-inputMask>
-                                <label for="">Telefone</label>
-                            </span>
-                        </div>
-                        <div class="col-4 field">
-                            <span class="p-float-label">
-                                <p-inputMask styleClass="w-full p-inputtext-sm" formControlName="celular"
-                                    [mask]="'(99) 9 9999-9999'">
-                                </p-inputMask>
-                                <label for="">Celular</label>
+                                <label for="">Telefone para contato</label>
                             </span>
                         </div>
                     </div>
@@ -76,63 +71,27 @@
                         </div>
                     </div>
                     <div class="formgrid  mt-3 grid col-12">
-                        <div class="col-3 field">
-                            <p-checkbox label="Trabalha / Estagia?" formControlName="trabalha" [binary]="true">
-                            </p-checkbox>
-                        </div>
-                    </div>
-                    <div class="formgrid  mt-3 grid col-12">
-                        <div *ngIf="trabalha" class="col-5 field">
+                        <div class="col-5 field">
                             <span class="p-float-label">
-                                <p-dropdown [options]="listaCargos" [placeholder]="'Cargo exercido'"
-                                    styleClass="p-inputtext-sm" inputId="dropdown" formControlName="idCargo"
-                                    [filter]="true" [showClear]="true" (onChange)="onChangeCargo($event)">
+                                <p-dropdown [options]="listaSetores" [placeholder]="'Setor da empresa'"
+                                    styleClass="p-inputtext-sm" inputId="dropdown" formControlName="idSetor"
+                                    [filter]="true" [showClear]="true" (onChange)="onChangeSetor($event)">
                                 </p-dropdown>
-                                <label>Cargo</label>
+                                <label>Setor da empresa *</label>
                             </span>
                         </div>
-                        <div *ngIf="outroCargo" class="col-5 field">
+                        <div *ngIf="outroSetor" class="col-5 field">
                             <span class="p-float-label">
-                                <input type="text" pInputText class="p-inputtext-sm" formControlName="novoCargo">
-                                <label for="">Digite o nome do seu cargo *</label>
+                                <input type="text" pInputText class="p-inputtext-sm" formControlName="novoSetor">
+                                <label for="">Digite o nome do setor da sua empresa *</label>
                             </span>
                         </div>
                     </div>
                 </p-fieldset>
-                <p-fieldset styleClass="mt-4" [legend]="'Dados Acadêmicos'" [toggleable]="true">
-                    <div class="formgrid mt-3 grid col-12">
-                        <div class="col-5 field">
-                            <span class="p-float-label">
-                                <p-dropdown [options]="listaCursos" [placeholder]="'Graduação'"
-                                    styleClass="p-inputtext-sm" inputId="dropdown" formControlName="idCurso"
-                                    [filter]="true" [showClear]="true" (onChange)="onChangeCurso($event)">
-                                </p-dropdown>
-                                <label>Curso *</label>
-                            </span>
-                        </div>
-                        <div *ngIf="outroCurso" class="col-5 field">
-                            <span class="p-float-label">
-                                <input type="text" pInputText class="p-inputtext-sm" formControlName="novoCurso">
-                                <label for="">Digite o nome da sua graduação *</label>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="formgrid mt-3 grid col-12">
-                        <div class="col-4 field">
-                            <span class="p-float-label">
-                                <p-calendar styleClass="p-inputtext-sm w-full" view="month" dateFormat="mm/yy"
-                                    formControlName="anoIngresso">
-                                </p-calendar>
-                                <label for="">Data de ingresso</label>
-                            </span>
-                        </div>
-                        <div class="col-4 field">
-                            <span class="p-float-label">
-                                <p-calendar styleClass="p-inputtext-sm w-full" view="month" dateFormat="mm/yy"
-                                    formControlName="anoFormatura">
-                                </p-calendar>
-                                <label for="">Data de conclusão</label>
-                            </span>
+                <p-fieldset styleClass="mt-4" [legend]="'Descrição da Empresa'" [toggleable]="true">
+                    <div class="formgrid grid col-12 mt-2">
+                        <div class="col-12 field">
+                            <p-editor [style]="{ height: '320px' }" formControlName="descricao"></p-editor>
                         </div>
                     </div>
                 </p-fieldset>
