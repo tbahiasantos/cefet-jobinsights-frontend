@@ -17,10 +17,11 @@ import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { MensagensModule } from './infra/mensagens/mensagens.module';
 import { PageNotFoundComponent } from './infra/404/page-not-found.component';
 import { ConfirmationComponent } from './core/confirmation/confirmation.component';
+import { ParaEmpresasComponent } from './content/para-empresas/para-empresas.component';
 
 @NgModule({
   declarations: [
-    AppComponent, IndexComponent, PageNotFoundComponent, ConfirmationComponent
+    AppComponent, IndexComponent, PageNotFoundComponent, ConfirmationComponent, ParaEmpresasComponent
   ],
   imports: [
     BrowserModule,

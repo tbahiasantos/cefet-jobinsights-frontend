@@ -18,7 +18,13 @@ export const BG_INDEX: BackgroundParametros = {
     background_name: 'background'
 }
 
+export const BG_PARA_EMPRESAS: BackgroundParametros = {
+    url: '/para-empresas',
+    background_name: 'background_para-empresas'
+}
+
 export const LIST_BG_PARAMETROS: BackgroundParametros[] = [
     BG_LOGIN,
-    BG_REGISTER
+    BG_REGISTER,
+    BG_PARA_EMPRESAS
 ];

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeModule } from './content/home/home.module';
 import { IndexComponent } from './content/index/index.component';
+import { ParaEmpresasComponent } from './content/para-empresas/para-empresas.component';
 import { ConfirmationComponent } from './core/confirmation/confirmation.component';
 import { LoginModule } from './core/login/login.module';
 import { RegisterModule } from './core/register/register.module';
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'confirmation',
     component: ConfirmationComponent
+  },
+  {
+    path: 'para-empresas',
+    component: ParaEmpresasComponent
   },
   {
     path: '',

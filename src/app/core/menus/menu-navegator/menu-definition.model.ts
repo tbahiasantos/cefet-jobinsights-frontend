@@ -7,13 +7,14 @@ export const ITEMS_MENU: MenuItem[] = [
     },
     {
         label: 'Empresas',
-        routerLink: '/sobre'
+        routerLink: '/empresas'
     },
     {
         label: 'Salários',
-        routerLink: '/treinamentos'
+        routerLink: '/salarios'
     },
     {
         label: 'Para Empresas',
+        routerLink: '/para-empresas'
     },
 ];
