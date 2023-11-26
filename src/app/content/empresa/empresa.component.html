@@ -1,3 +1,96 @@
-<div class="col-12 m-0 p-0">
-    <app-detalhe-list-empresa [empresas]="listaEmpresas"></app-detalhe-list-empresa>
+<div class="w-full grid justify-content-center align-items-center m-0 p-0 mt-2">
+    <form [formGroup]="form" class="col-12 mt-2 flex justify-content-center">
+        <div class="field col-3 m-0 p-0 mr-4">
+            <p-card styleClass="w-full border-noround opacity-90" header="Explorar empresas">
+                <div class="formgrid mt-3 grid col-12 align-items-center">
+                    <div class="col-8 field">
+                        <span>Tem uma empresa em mente?</span>
+                    </div>
+                    <div class="col-4 field">
+                        <button pButton class="p-button-raised p-button-primary p-button-sm" [style]="{'width':'100%'}"
+                            label="Buscar" (click)="pesquisar()">
+                        </button>
+                    </div>
+                </div>
+                <div class="formgrid mt-3 grid col-12">
+                    <div class="col-12 field">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="p-inputtext-sm" formControlName="nome">
+                            <label for="">Nome</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="formgrid mt-3 grid col-12">
+                    <div class="col-12 field">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="p-inputtext-sm" formControlName="setor">
+                            <label for="">Setor</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="formgrid mt-3 grid col-12">
+                    <div class="col-12 field">
+                        <span class="p-float-label">
+                            <p-dropdown [options]="listaTamanhos" [placeholder]="'Tamanho da empresa'"
+                                styleClass="p-inputtext-sm" inputId="dd-tamanho" formControlName="tamanho"
+                                [showClear]="true">
+                            </p-dropdown>
+                            <label>Tamanho da empresa</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="formgrid mt-3 grid col-12">
+                    <div class="col-12 field">
+                        <span class="p-float-label">
+                            <p-dropdown [options]="notasList" [placeholder]="'Avaliação da empresa'"
+                                styleClass="p-inputtext-sm" inputId="dd-nota" formControlName="nota" [showClear]="true">
+                                <ng-template pTemplate="selectedItem">
+                                    <p-rating formControlName="nota" [readonly]="true" [cancel]="false"></p-rating>
+                                </ng-template>
+                                <ng-template let-nota pTemplate="item">
+                                    <div [formGroup]="startForm" class="m-0 p-0 w-full">
+                                        <span>
+                                            <p-rating [formControlName]="nota.value" [readonly]="true" [cancel]="false">
+                                            </p-rating> ou mais
+                                        </span>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                            <label>Avaliação da empresa</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="formgrid mt-3 grid col-12">
+                    <div class="col-12 field grid align-items-center justify-content-between">
+                        <div class="col-12 field">
+                            <span class="text-sm">Classificar por: </span>
+                        </div>
+                        <div class="col-12 field">
+                            <span class="p-float-label">
+                                <p-dropdown [options]="orderByList" [placeholder]="'Classificação'"
+                                    styleClass="p-inputtext-sm" inputId="dd-order" formControlName="orderBy"
+                                    [showClear]="true">
+                                </p-dropdown>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="field col-7 m-0 p-0 h-full">
+            <div *ngFor="let empresa of listaEmpresas" class="cursor-pointer hover:shadow-4 m-0 p-0">
+                <app-detalhe-list-empresa [empresa]="empresa"></app-detalhe-list-empresa>
+            </div>
+            <div class="" *ngIf="listaEmpresas.length === 0">
+                <p-card styleClass="w-full border-noround opacity-90">
+                    <div class="h-30rem m-0 p-0 grid align-items-center justify-content-center">
+                        <span class="text-xl font-light text-center">Não foram encrontradas empresas para o critério de
+                            pesquisa
+                            definido</span>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+
+    </form>
 </div>

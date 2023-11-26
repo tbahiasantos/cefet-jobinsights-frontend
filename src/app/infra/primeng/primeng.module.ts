@@ -38,10 +38,12 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { ChipModule } from 'primeng/chip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CarouselModule } from 'primeng/carousel';
+import { RatingModule } from 'primeng/rating';
 
 
 @NgModule({
   exports: [
+    RatingModule,
     CarouselModule,
     InputTextareaModule,
     ChipModule,

@@ -8,6 +8,6 @@
     "detalhar": "/detalhar",
     "listar": "/listarTodos",
     "excluir": "/excluir",
-    "buscar": "/buscar"
+    "pesquisar": "/pesquisar"
   }
 }

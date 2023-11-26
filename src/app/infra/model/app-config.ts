@@ -10,5 +10,5 @@ export interface Endpoints {
     detalhar: string;
     listar: string;
     excluir: string;
-    buscar: string;
+    pesquisar: string;
 }

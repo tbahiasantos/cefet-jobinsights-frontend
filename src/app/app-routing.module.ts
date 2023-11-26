@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeModule } from './content/home/home.module';
+import { CarreiraModule } from './content/carreira/carreira.module';
 import { IndexComponent } from './content/index/index.component';
 import { ParaEmpresasComponent } from './content/para-empresas/para-empresas.component';
 import { ConfirmationComponent } from './core/confirmation/confirmation.component';
@@ -23,8 +23,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'home',
-    loadChildren: () => import('./content/home/home.module').then(x => HomeModule),
+    path: 'carreira',
+    loadChildren: () => import('./content/carreira/carreira.module').then(x => CarreiraModule),
     canActivate: [AlunoGuard]
   },
   {

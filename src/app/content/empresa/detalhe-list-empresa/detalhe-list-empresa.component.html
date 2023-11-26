@@ -1,20 +1,50 @@
-<div class="col-12 m-0 p-0 grid mt-8">
-    <div *ngFor="let empresa of empresas" class="col-12 field grid justify-content-center mt-2">
-        <div class="col-5 field grid shadow-2 p-3 border-round align-items-center justify-content-between cursor-pointer"
-            (click)="escolheuEmpresa(empresa)">
-            <div class="col-2 field">
-                <span>{{empresa.nome}}</span><br>
-                <span>{{nota(empresa)}}★</span>
+<p-card styleClass="w-full border-noround opacity-90">
+    <div class="formgrid m-0 p-0 grid col-12 text-xl font-bold">
+        <div class="col-8 field">
+            <span class="">{{empresa.nome}}</span>
+        </div>
+        <div class="col-4 field grid m-0 p-0 text-center">
+            <div class="col-4 field">
+                {{empresa.avaliacoes}}
             </div>
-            <div class="col-3 field">
-                {{tamanho(empresa)}}
+            <div class="col-4 field">
+                {{empresa.salarios}}
             </div>
-            <div class="col-3 field">
-                {{avaliacoes(empresa)}}
-            </div>
-            <div class="col-3 field">
-                {{salarios(empresa)}}
+            <div class="col-4 field">
+                {{empresa.vagas}}
             </div>
         </div>
     </div>
-</div>
+    <div class="formgrid m-0 p-0 grid col-12 text-sm font-light">
+        <div class="col-8 field">
+            <span class="text-green-500">{{empresa.nota}}★</span>
+        </div>
+        <div class="col-4 field grid m-0 p-0 text-center">
+            <div class="col-4 field">
+                <span>Avaliacões</span>
+            </div>
+            <div class="col-4 field">
+                <span>Salários</span>
+            </div>
+            <div class="col-4 field">
+                <span>Vagas</span>
+            </div>
+        </div>
+    </div>
+    <div class="formgrid m-0 p-0 grid col-12 mt-3 font-bold">
+        <div class="col-6 field">
+            <span>Tamanho geral da empresa</span>
+        </div>
+        <div class="col-6 field">
+            <span>Setor</span>
+        </div>
+    </div>
+    <div class="formgrid m-0 p-0 grid col-12 text-sm font-light">
+        <div class="col-6 field">
+            <span>{{empresa.tamanhoStr}}</span>
+        </div>
+        <div class="col-6 field">
+            <span>{{empresa.setor}}</span>
+        </div>
+    </div>
+</p-card>

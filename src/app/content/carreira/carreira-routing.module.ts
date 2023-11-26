@@ -6,15 +6,15 @@ import { EmpresaSalariosComponent } from "../empresa/empresa-salarios/empresa-sa
 import { EmpresaVagasComponent } from "../empresa/empresa-vagas/empresa-vagas.component";
 import { EmpresaComponent } from "../empresa/empresa.component";
 import { VagasComponent } from "../vagas/vagas.component";
-import { HomeComponent } from "./home.component";
+import { CarreiraComponent } from "./carreira.component";
 
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent,
+        component: CarreiraComponent,
         children: [
             {
-                path: 'empresa',
+                path: 'empresas',
                 component: EmpresaComponent
             },
             {
@@ -46,7 +46,7 @@ const routes: Routes = [
             },
             {
                 path: '',
-                redirectTo: 'empresa',
+                redirectTo: 'vagas',
                 pathMatch: 'full'
             }
         ]
@@ -57,6 +57,6 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class HomeRoutingModule {
+export class CarreiraRoutingModule {
 
 }

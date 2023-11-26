@@ -3,15 +3,15 @@ import { MenuItem } from "primeng/api";
 export const ITEMS_MENU: MenuItem[] = [
     {
         label: 'Vagas',
-        routerLink: '/home'
+        routerLink: '/carreira'
     },
     {
         label: 'Empresas',
-        routerLink: '/empresas'
+        routerLink: '/carreira/empresas'
     },
     {
         label: 'Salários',
-        routerLink: '/salarios'
+        routerLink: '/carreira/salarios'
     },
     {
         label: 'Para Empresas',
