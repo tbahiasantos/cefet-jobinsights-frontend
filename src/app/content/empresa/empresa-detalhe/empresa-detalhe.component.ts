@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenService } from 'src/app/infra/token/token.service';
 import { Empresa } from 'src/app/model/entity/empresa.model';
 import { EmpresaService } from 'src/app/service/empresa.service';
 
@@ -16,10 +17,17 @@ export class EmpresaDetalheComponent {
   showVagas: boolean = false;
   showSalarios: boolean = false;
 
+  displayAvaliacao: boolean = false;
+
   constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly empresaService: EmpresaService
+    private readonly empresaService: EmpresaService,
+    private readonly tokenService: TokenService
   ) {
+    this.findEmpresa();
+  }
+
+  private findEmpresa() {
     const id = this.activatedRoute.snapshot.queryParamMap.has('id');
     if (id) {
       const id: number = (this.activatedRoute.snapshot.queryParamMap.get('id') as unknown) as number;
@@ -27,6 +35,12 @@ export class EmpresaDetalheComponent {
         this.empresa = empresa;
       })
     }
+  }
+
+  isAvaliacaoDisabled(): boolean {
+    let a = this.empresa.avaliacoes.find(avaliacao => avaliacao.idAluno === this.tokenService.getTokenDTO().id);
+    console.log(a);
+    return a !== undefined;
   }
 
   private disableViews() {
@@ -54,6 +68,11 @@ export class EmpresaDetalheComponent {
   activeSalariosView() {
     this.disableViews();
     this.showSalarios = true;
+  }
+
+  criouAvaliacao() {
+    this.displayAvaliacao = false;
+    this.findEmpresa();
   }
 
 }

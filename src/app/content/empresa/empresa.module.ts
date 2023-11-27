@@ -9,6 +9,7 @@ import { VisaoGeralEmpresaComponent } from './empresa-detalhe/visao-geral-empres
 import { AvaliacoesEmpresaComponent } from './empresa-detalhe/avaliacoes-empresa/avaliacoes-empresa.component';
 import { SalariosEmpresaComponent } from './empresa-detalhe/salarios-empresa/salarios-empresa.component';
 import { VagasEmpresaComponent } from './empresa-detalhe/vagas-empresa/vagas-empresa.component';
+import { CadastroModule } from '../cadastro/cadastro.module';
 
 
 
@@ -25,7 +26,8 @@ import { VagasEmpresaComponent } from './empresa-detalhe/vagas-empresa/vagas-emp
   imports: [
     CommonModule,
     PrimengModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CadastroModule
   ],
   exports: [
     DetalheListEmpresaComponent

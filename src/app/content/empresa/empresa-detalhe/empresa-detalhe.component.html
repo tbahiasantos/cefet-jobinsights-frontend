@@ -2,25 +2,38 @@
     <div class="col-10 grid field m-0 p-0">
         <h1>{{empresa.nome}}</h1>
         <div class="formgrid mt-5 grid col-12 text-center">
-            <div (click)="activeVisaoGeralView()"
-                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
-                [class]="showVisaoGeral ? 'surface-hover opacity-100':''">
-                <span>Visão geral</span>
+            <div class="col-6 m-0 p-0 field grid align-items-center">
+                <div (click)="activeVisaoGeralView()"
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                    [class]="showVisaoGeral ? 'surface-hover opacity-100':''">
+                    <span>Visão geral</span>
+                </div>
+                <div (click)="activeAvaliacaoesView()"
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                    [class]="showAvaliacaoes ? 'surface-hover opacity-100':''">
+                    <span>Avaliações</span>
+                </div>
+                <div (click)="activeVagasView()"
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                    [class]="showVagas ? 'surface-hover opacity-100':''">
+                    <span>Vagas</span>
+                </div>
+                <div (click)="activeSalariosView()"
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200"
+                    [ngClass]="showSalarios ? 'surface-hover opacity-100':''">
+                    <span>Salários</span>
+                </div>
             </div>
-            <div (click)="activeAvaliacaoesView()"
-                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
-                [class]="showAvaliacaoes ? 'surface-hover opacity-100':''">
-                <span>Avaliações</span>
-            </div>
-            <div (click)="activeVagasView()"
-                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
-                [class]="showVagas ? 'surface-hover opacity-100':''">
-                <span>Vagas</span>
-            </div>
-            <div (click)="activeSalariosView()"
-                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
-                [ngClass]="showSalarios ? 'surface-hover opacity-100':''">
-                <span>Salários</span>
+            <div class="col-6 m-0 p-0 field grid justify-content-end align-items-center">
+                <div class="col-4 field m-0 p-0">
+                    <p-button size="small" [raised]="true" label="Adicionar salário" icon="pi pi-plus"></p-button>
+                </div>
+                <div class="col-4 field m-0 p-0">
+                    <p-button size="small" [raised]="true" label="Adicionar avaliação" icon="pi pi-plus"
+                        (onClick)="displayAvaliacao = true" [disabled]="isAvaliacaoDisabled()"
+                        [ngStyle]="{'cursor': isAvaliacaoDisabled() ? 'not-allowed' : 'pointer' +' !important'}"
+                        [pTooltip]="'Você já avaliou esta empresa'"></p-button>
+                </div>
             </div>
         </div>
         <div class="formgrid mt-3 grid col-12">
@@ -32,5 +45,6 @@
             </div>
         </div>
     </div>
-
 </div>
+<app-avaliacao [display]="displayAvaliacao" [empresa]="empresa" (exit)="displayAvaliacao = false"
+    (avaliacaoSalva)="criouAvaliacao()"></app-avaliacao>
