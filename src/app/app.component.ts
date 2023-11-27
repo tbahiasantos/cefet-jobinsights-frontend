@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { LISTA_EMPRESAS } from './content/empresa/empresa-definitions';
 import { BackgroundService } from './infra/background/background.service';
-import { StorageService } from './infra/storage/storage.service';
 
 @Component({
   selector: 'app-root',

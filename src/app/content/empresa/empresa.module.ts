@@ -5,9 +5,10 @@ import { DetalheListEmpresaComponent } from './detalhe-list-empresa/detalhe-list
 import { PrimengModule } from 'src/app/infra/primeng/primeng.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmpresaDetalheComponent } from './empresa-detalhe/empresa-detalhe.component';
-import { EmpresaAvaliacoesComponent } from './empresa-avaliacoes/empresa-avaliacoes.component';
-import { EmpresaSalariosComponent } from './empresa-salarios/empresa-salarios.component';
-import { EmpresaVagasComponent } from './empresa-vagas/empresa-vagas.component';
+import { VisaoGeralEmpresaComponent } from './empresa-detalhe/visao-geral-empresa/visao-geral-empresa.component';
+import { AvaliacoesEmpresaComponent } from './empresa-detalhe/avaliacoes-empresa/avaliacoes-empresa.component';
+import { SalariosEmpresaComponent } from './empresa-detalhe/salarios-empresa/salarios-empresa.component';
+import { VagasEmpresaComponent } from './empresa-detalhe/vagas-empresa/vagas-empresa.component';
 
 
 
@@ -16,9 +17,10 @@ import { EmpresaVagasComponent } from './empresa-vagas/empresa-vagas.component';
     EmpresaComponent,
     DetalheListEmpresaComponent,
     EmpresaDetalheComponent,
-    EmpresaAvaliacoesComponent,
-    EmpresaSalariosComponent,
-    EmpresaVagasComponent
+    VisaoGeralEmpresaComponent,
+    AvaliacoesEmpresaComponent,
+    SalariosEmpresaComponent,
+    VagasEmpresaComponent
   ],
   imports: [
     CommonModule,

@@ -78,7 +78,7 @@
             </p-card>
         </div>
         <div class="field col-7 m-0 p-0 h-full">
-            <div *ngFor="let empresa of listaEmpresas" class="cursor-pointer hover:shadow-4 m-0 p-0">
+            <div *ngFor="let empresa of listaEmpresas" class="cursor-pointer hover:shadow-4 m-0 p-0 mb-2">
                 <app-detalhe-list-empresa [empresa]="empresa"></app-detalhe-list-empresa>
             </div>
             <div class="" *ngIf="listaEmpresas.length === 0">

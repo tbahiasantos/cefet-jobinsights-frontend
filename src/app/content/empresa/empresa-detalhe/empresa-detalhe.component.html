@@ -1,16 +1,36 @@
-<div class="col-12 grid m-0 p-0 justify-content-center">
-    <div class="col-11 field grid mt-5">
-        <h3>{{empresa.nome}}</h3>
-    </div>
-    <div class="col-11 m-0 p-0 grid">
-        <div *ngFor="let item of itens" class="col-1 field grid text-center mr-3 border-round">
-            <div class="col-12 field shadow-1 cursor-pointer surface-card hover:surface-hover py-3 px-3 border-round"
-                (click)="navegate(item.routerLink)">
-                <span class="">{{item.label}}</span>
+<div class="w-full grid justify-content-center align-items-center m-0 p-0 mt-4">
+    <div class="col-10 grid field m-0 p-0">
+        <h1>{{empresa.nome}}</h1>
+        <div class="formgrid mt-5 grid col-12 text-center">
+            <div (click)="activeVisaoGeralView()"
+                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                [class]="showVisaoGeral ? 'surface-hover opacity-100':''">
+                <span>Visão geral</span>
+            </div>
+            <div (click)="activeAvaliacaoesView()"
+                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                [class]="showAvaliacaoes ? 'surface-hover opacity-100':''">
+                <span>Avaliações</span>
+            </div>
+            <div (click)="activeVagasView()"
+                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                [class]="showVagas ? 'surface-hover opacity-100':''">
+                <span>Vagas</span>
+            </div>
+            <div (click)="activeSalariosView()"
+                class="col-1 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                [ngClass]="showSalarios ? 'surface-hover opacity-100':''">
+                <span>Salários</span>
+            </div>
+        </div>
+        <div class="formgrid mt-3 grid col-12">
+            <div class="col-12 field m-0 p-0">
+                <app-visao-geral-empresa *ngIf="showVisaoGeral" [empresa]="empresa"></app-visao-geral-empresa>
+                <app-salarios-empresa *ngIf="showSalarios"></app-salarios-empresa>
+                <app-vagas-empresa *ngIf="showVagas"></app-vagas-empresa>
+                <app-avaliacoes-empresa *ngIf="showAvaliacaoes"></app-avaliacoes-empresa>
             </div>
         </div>
     </div>
-    <div class="col-11 m-0 p-0 mt-3">
-        <router-outlet></router-outlet>
-    </div>
+
 </div>

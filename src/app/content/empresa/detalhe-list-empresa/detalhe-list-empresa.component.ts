@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { StorageService } from 'src/app/infra/storage/storage.service';
 import { EmpresaResponse } from 'src/app/model/dto/empresa-dto.model';
-import { Empresa } from '../empresa-definitions';
 
 @Component({
   selector: 'app-detalhe-list-empresa',
@@ -17,6 +15,9 @@ export class DetalheListEmpresaComponent {
 
   }
 
+  detalharEmpresa(id: number) {
+    this.router.navigateByUrl("/carreira/empresas/detalhe?id=" + id)
+  }
 
 
 }

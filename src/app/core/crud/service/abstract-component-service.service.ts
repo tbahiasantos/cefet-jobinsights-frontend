@@ -29,6 +29,11 @@ export abstract class AbstractComponentService<Entity extends AbstractEntity> {
         return this.http.post<Entity>(url, entity);
     }
 
+    detalhar(id: number): Observable<Entity> {
+        const url = this.urlApi + this.path + AppConfig.settings.endpoints.detalhar;
+        return this.http.get<Entity>(`${url}/${id}`);
+    }
+
 
 
 

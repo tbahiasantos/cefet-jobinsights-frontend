@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-para-empresas',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./para-empresas.component.scss']
 })
 export class ParaEmpresasComponent {
+
+  constructor(private readonly router: Router) {
+
+  }
+
+  telaRegistro() {
+    this.router.navigateByUrl('/para-empresas/registrar');
+  }
 
 }

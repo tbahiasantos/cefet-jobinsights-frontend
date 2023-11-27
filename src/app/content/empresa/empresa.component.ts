@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
-import { StorageService } from 'src/app/infra/storage/storage.service';
 import { EmpresaFilter, EmpresaResponse } from 'src/app/model/dto/empresa-dto.model';
 import { EmpresaService } from 'src/app/service/empresa.service';
-import { Empresa } from './empresa-definitions';
 
 @Component({
   selector: 'app-empresa',

@@ -1,0 +1,22 @@
+<p-card styleClass="w-full border-noround opacity-90 grid text-900" [header]="getHeaderText()">
+    <div class="formgrid mt-3 grid col-12">
+        <div class="col-12 field">
+            <span>{{empresa.tamanhoStr}}</span>
+        </div>
+    </div>
+    <div class="formgrid mt-1 grid col-12">
+        <div class="col-12 field">
+            <span>{{empresa.setor.nome}}</span>
+        </div>
+    </div>
+    <div class="formgrid mt-1 grid col-12">
+        <div class="col-12 field">
+            <span>Email para contato: {{empresa.email}}</span>
+        </div>
+    </div>
+    <div class="formgrid mt-1 grid col-12">
+        <div class="col-12 field">
+            <p [innerHTML]="empresa.descricao"></p>
+        </div>
+    </div>
+</p-card>
