@@ -101,8 +101,6 @@ export class EmpresaComponent {
   }
 
   getStarRating(nota: number) {
-    console.log(nota);
-
     return nota;
   }
 

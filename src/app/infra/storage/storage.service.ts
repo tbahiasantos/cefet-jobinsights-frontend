@@ -34,7 +34,6 @@ export class StorageService {
 
     private static getEncryptKey(key: string): string {
         for (let i = 0; i < window.sessionStorage.length; i++) {
-            console.log(key);
             let encryptKey = window.sessionStorage.key(i);
             if (encryptKey && key === EncryptService.decrypt(encryptKey)) {
                 return encryptKey;

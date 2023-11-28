@@ -39,7 +39,6 @@ export class EmpresaDetalheComponent {
 
   isAvaliacaoDisabled(): boolean {
     let a = this.empresa.avaliacoes.find(avaliacao => avaliacao.idAluno === this.tokenService.getTokenDTO().id);
-    console.log(a);
     return a !== undefined;
   }
 

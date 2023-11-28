@@ -24,7 +24,6 @@ export class MenuNavegatorComponent {
     });
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(this.router.url);
         this.showMenuUsuario = (
           this.router.url !== "/para-empresas"
           && this.router.url !== "/para-empresas/registrar");

@@ -1,1 +1,44 @@
-<p>avaliacoes-empresa works!</p>
+<div class="w-full grid justify-content-center align-items-center m-0 p-0 mt-2">
+    <form [formGroup]="form" class="col-12 mt-2 grid flex justify-content-center">
+        <div class="field col-12 m-0 p-0">
+            <p-card styleClass="w-full border-noround opacity-90" [header]="getHeaderText()">
+                <div class="formgrid mt-3 grid col-12">
+                    <div class="col-8 field">
+                        <span class="p-float-label">
+                            <input pInputText class="p-inputtext-sm" type="text" formControlName="cargo">
+                            <label>Cargo do funcionario</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <p-dropdown [options]="notasList" [placeholder]="'Avaliação da empresa'"
+                                styleClass="p-inputtext-sm" inputId="dd-nota" formControlName="nota" [showClear]="true">
+                                <ng-template pTemplate="selectedItem">
+                                    <p-rating formControlName="nota" [readonly]="true" [cancel]="false"></p-rating>
+                                </ng-template>
+                                <ng-template let-nota pTemplate="item">
+                                    <div [formGroup]="startForm" class="m-0 p-0 w-full">
+                                        <span>
+                                            <p-rating [formControlName]="nota.value" [readonly]="true" [cancel]="false">
+                                            </p-rating>
+                                        </span>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                            <label>Nota da avaliação</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="formgrid mt-2 mb-0 pb-0 grid col-12">
+                    <div class="col-12 field grid justify-content-end mb-0 pb-0">
+                        <button pButton label="Buscar" class="p-button-sm border-round-sm p-button-raised"
+                            (click)="pesquisar()"></button>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div *ngFor="let avaliacao of listaAvaliacoes" class="field col-12 m-0 p-0 mt-3">
+            <app-avaliacao-card [avaliacao]="avaliacao"></app-avaliacao-card>
+        </div>
+    </form>
+</div>

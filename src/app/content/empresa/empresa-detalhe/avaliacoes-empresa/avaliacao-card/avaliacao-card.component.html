@@ -1,0 +1,46 @@
+<p-card styleClass="w-full border-noround  m-0 p-0">
+    <div [formGroup]="form" class="w-full grid justify-content-center align-items-center m-0 p-0">
+        <div class="formgrid grid col-12 mt-0 pt-0">
+            <div class="col-10 field grid align-items-center text-sm">
+                <span class="mr-4">{{notaFormat}}</span>
+                <p-rating [readonly]="true" [cancel]="false" formControlName="nota"
+                    [iconOnStyle]="{color: 'var(--surface-900)'}">
+                </p-rating>
+            </div>
+            <div class="col-2 field">
+                <span>{{avaliacao.dataAvaliacao}}</span>
+            </div>
+        </div>
+        <div class="formgrid grid col-12 mt-3 font-bold text-xl">
+            <div class="col-12 field">
+                <span>{{avaliacao.titulo}}</span>
+            </div>
+        </div>
+        <div class="formgrid grid col-12">
+            <div class="col-12 field grid align-items-center">
+                <span><i class="pi pi-user border-circle p-3 border-1 surface-hover border-500"></i></span>
+                <span class="ml-3">{{avaliacao.cargoAluno}}</span>
+            </div>
+        </div>
+        <div class="formgrid grid col-12 mt-2 mb-0 pb-0 text-green-500">
+            <div class="col-12 field mb-0 pb-0">
+                <span>Prós</span>
+            </div>
+        </div>
+        <div class="formgrid grid col-12 mt-0 pt-0">
+            <div class="col-12 field mt-0 pt-0">
+                <p>{{avaliacao.pros}}</p>
+            </div>
+        </div>
+        <div class="formgrid grid col-12 mt-2 mb-0 pb-0 text-red-500">
+            <div class="col-12 field mb-0 pb-0">
+                <span>Contras</span>
+            </div>
+        </div>
+        <div class="formgrid grid col-12 mt-0 pt-0 mb-0 pb-0">
+            <div class="col-12 field mt-0 pt-0 mb-0 pb-0">
+                <p>{{avaliacao.contra}}</p>
+            </div>
+        </div>
+    </div>
+</p-card>

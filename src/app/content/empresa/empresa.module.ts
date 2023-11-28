@@ -10,6 +10,7 @@ import { AvaliacoesEmpresaComponent } from './empresa-detalhe/avaliacoes-empresa
 import { SalariosEmpresaComponent } from './empresa-detalhe/salarios-empresa/salarios-empresa.component';
 import { VagasEmpresaComponent } from './empresa-detalhe/vagas-empresa/vagas-empresa.component';
 import { CadastroModule } from '../cadastro/cadastro.module';
+import { AvaliacaoCardComponent } from './empresa-detalhe/avaliacoes-empresa/avaliacao-card/avaliacao-card.component';
 
 
 
@@ -21,7 +22,8 @@ import { CadastroModule } from '../cadastro/cadastro.module';
     VisaoGeralEmpresaComponent,
     AvaliacoesEmpresaComponent,
     SalariosEmpresaComponent,
-    VagasEmpresaComponent
+    VagasEmpresaComponent,
+    AvaliacaoCardComponent
   ],
   imports: [
     CommonModule,
