@@ -26,7 +26,8 @@
             </div>
             <div class="col-6 m-0 p-0 field grid justify-content-end align-items-center">
                 <div class="col-4 field m-0 p-0">
-                    <p-button size="small" [raised]="true" label="Adicionar salário" icon="pi pi-plus"></p-button>
+                    <p-button size="small" [raised]="true" label="Adicionar salário" icon="pi pi-plus"
+                        (onClick)="displaySalario = true" [disabled]="isSalarioDisabled()"></p-button>
                 </div>
                 <div class="col-4 field m-0 p-0">
                     <p-button size="small" [raised]="true" label="Adicionar avaliação" icon="pi pi-plus"
@@ -48,3 +49,6 @@
 </div>
 <app-avaliacao [display]="displayAvaliacao" [empresa]="empresa" (exit)="displayAvaliacao = false"
     (avaliacaoSalva)="criouAvaliacao()"></app-avaliacao>
+<app-salario [display]="displaySalario" [empresa]="empresa" (exit)="displaySalario = false"
+    (salarioSalvo)="criouAvaliacao()">
+</app-salario>

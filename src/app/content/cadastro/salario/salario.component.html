@@ -1,1 +1,52 @@
-<p>salario works!</p>
+<p-dialog [(visible)]="display" (onHide)="fecharModal()" (onShow)="inicializar()" [modal]="true"
+    [style]="{width: '50vw'}" [draggable]="false" [resizable]="false" [breakpoints]="{'960px': '75vw'}">
+    <form [formGroup]="form">
+        <div class="formgrid grid">
+            <div class="col-12 field text-xl font-bold">
+                <span>
+                    Insira detalhes da sua remuneração
+                </span>
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="col-12 field font-light">
+                <p>
+                    Leva apenas um minuto! Ajude outros candidatos como você adicionando uma avaliação sigilosa
+                </p>
+            </div>
+        </div>
+        <div class="formgrid grid mt-5">
+            <div class="col-6 field font-light">
+                <span class="p-float-label">
+                    <input readonly pInputText type="text" class="p-inputtext-sm" formControlName="nomeEmpresa">
+                    <label>Empresa</label>
+                </span>
+            </div>
+            <div class="col-6 field">
+                <span class="p-float-label">
+                    <p-dropdown [options]="listaCargo" [placeholder]="'Cargo exercido *'" styleClass="p-inputtext-sm"
+                        inputId="dropdown-tam" formControlName="idCargo" [showClear]="true">
+                    </p-dropdown>
+                    <label>Cargo exercido *</label>
+                </span>
+            </div>
+        </div>
+        <div class="formgrid grid mt-5">
+            <div class="col-12 field font-light">
+                <span class="p-float-label">
+                    <p-inputNumber formControlName="valor" inputId="currency-us" mode="currency" currency="BRL"
+                        locale="pt-BR">
+                    </p-inputNumber>
+                    <label>Salário base *</label>
+                </span>
+            </div>
+        </div>
+        <div class="col-12 field formgrid grid flex justify-content-end mb-0 pb-0">
+            <div class="col-4 field mb-0 pb-0">
+                <button pButton class="p-button-primary w-full font-light" label="Enviar salário"
+                    [disabled]="!form.valid" (click)="salvar()">
+                </button>
+            </div>
+        </div>
+    </form>
+</p-dialog>

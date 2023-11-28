@@ -23,6 +23,7 @@ textarea.ng-invalid~label,
 p-inputMask.ng-invalid~label,
 p-password.ng-invalid~label,
 p-calendar.ng-invalid~label,
+p-inputnumber.ng-invalid~label,
 p-dropdown.ng-invalid:not(form)~label {
     color: red !important;
 
@@ -31,6 +32,7 @@ p-dropdown.ng-invalid:not(form)~label {
 p-inputMask.ng-invalid>input,
 p-password.ng-invalid>div>input,
 p-calendar.ng-invalid>span>input,
+p-inputnumber.ng-invalid>span>input,
 input.ng-invalid,
 textarea.ng-invalid {
     border-color: red !important;

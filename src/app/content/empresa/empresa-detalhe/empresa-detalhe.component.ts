@@ -18,6 +18,7 @@ export class EmpresaDetalheComponent {
   showSalarios: boolean = false;
 
   displayAvaliacao: boolean = false;
+  displaySalario: boolean = false;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -40,6 +41,11 @@ export class EmpresaDetalheComponent {
   isAvaliacaoDisabled(): boolean {
     let a = this.empresa.avaliacoes.find(avaliacao => avaliacao.idAluno === this.tokenService.getTokenDTO().id);
     return a !== undefined;
+  }
+
+  isSalarioDisabled(): boolean {
+    let salario = this.empresa.salarios.find(s => s.idAluno === this.tokenService.getTokenDTO().id);
+    return salario !== undefined;
   }
 
   private disableViews() {
