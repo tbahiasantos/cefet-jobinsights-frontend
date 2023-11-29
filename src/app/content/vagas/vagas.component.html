@@ -1,0 +1,53 @@
+<div class="w-full grid justify-content-center align-items-center m-0 p-0">
+    <div class="col-4 m-0 p-0 mr-3 overflow-y-scroll"
+        style="min-height: 35rem !important; max-height: 35rem !important;">
+        <div *ngFor="let vaga of vagas"
+            class="col-12 field border-bottom-1 border-200 h-7rem m-0 p-0 hover:shadow-1 hover:surface-300 cursor-pointer"
+            (click)="changeVaga(vaga)">
+            <div class="formgrid grid col-12 text-lg font-bold text-900">
+                <div class="col-12 field">
+                    <span>{{vaga.nomeEmpresa}}</span>
+                </div>
+            </div>
+            <div class="formgrid grid col-12 font-bold text-900">
+                <div class="col-12 field">
+                    <span>{{vaga.cargo}}({{vaga.tipoVagaStr}})</span>
+                </div>
+            </div>
+            <div class="formgrid grid col-12">
+                <div class="col-10 field">
+                    <span>{{getLabelSalario(vaga)}}</span>
+                </div>
+                <div class="col-2 field  text-sm">
+                    <span>{{formatDate(vaga)}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="formgrid grid col-7 m-0 p-0 h-full border-1 border-400 border-round-lg overflow-y-scroll"
+        style="min-height: 35rem !important; max-height: 35rem !important;">
+        <div *ngIf="vaga.id !== 0" class="col-12 field text-900 p-5">
+            <div class="formgrid grid col-12">
+                <div class="col-12 field">
+                    <span class="text-xl">{{vaga.nomeEmpresa}}</span>
+                </div>
+            </div>
+            <div class="formgrid grid col-12">
+                <div class="col-12 field">
+                    <span class="text-4xl bold">{{vaga.cargo.nome}}</span>
+                </div>
+            </div>
+            <div class="formgrid grid col-12 mt-5">
+                <div class="col-12 field">
+                    <p [innerHTML]="vaga.descricao" class="text-left"></p>
+                </div>
+            </div>
+            <div class="formgrid grid col-12 mt-5">
+                <div class="col-12 field">
+                    <span><label class="font-bold">Salário: </label>{{vaga.salario?formatSalario(vaga) : 'Não
+                        informado'}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

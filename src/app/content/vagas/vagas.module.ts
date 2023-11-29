@@ -14,6 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PrimengModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    VagasComponent
   ]
 })
 export class VagasModule { }

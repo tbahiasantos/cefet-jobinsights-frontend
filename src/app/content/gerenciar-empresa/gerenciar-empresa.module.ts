@@ -8,6 +8,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
 import { VagasComponent } from './vagas/vagas.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CriarVagaComponent } from './vagas/criar-vaga/criar-vaga.component';
+import { VagasModule } from '../vagas/vagas.module';
 
 
 
@@ -16,14 +18,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     GerenciarEmpresaComponent,
     PerfilComponent,
     AvaliacoesComponent,
-    VagasComponent
+    VagasComponent,
+    CriarVagaComponent
   ],
   imports: [
     CommonModule,
     PrimengModule,
     GerenciarEmpresaRoutingModule,
     MenusModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    VagasModule
+  ],
+  exports: [
+    CriarVagaComponent
   ]
 })
 export class GerenciarEmpresaModule { }
