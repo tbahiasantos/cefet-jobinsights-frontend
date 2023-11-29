@@ -36,11 +36,6 @@ export class SalariosEmpresaComponent implements OnInit {
       const filter: SalarioFilter = this.form.getRawValue() as SalarioFilter;
       this.salarioService.buscar(filter).subscribe(response => {
         this.listaSalarios = response;
-        for (let i = 0; i < 100; i++) {
-          if (response.length > 0) {
-            this.listaSalarios.push(response[0]);
-          }
-        }
       });
     }
   }

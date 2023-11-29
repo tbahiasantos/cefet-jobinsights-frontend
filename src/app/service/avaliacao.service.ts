@@ -13,9 +13,15 @@ export class AvaliacaoService extends AbstractComponentService<Avaliacao> {
     constructor(private _http: HttpClient) {
         super(_http, 'avaliacao');
     }
+
     buscar(filter: AvaliacaoFilter): Observable<Avaliacao[]> {
         const url = this.urlApi + this.path + AppConfig.settings.endpoints.pesquisar;
         return this.http.post<Avaliacao[]>(url, filter);
+    }
+
+    listarPorEmpresa(idEmpresa: number): Observable<Avaliacao[]> {
+        const url = this.urlApi + this.path + "/listar";
+        return this.http.get<Avaliacao[]>(`${url}/${idEmpresa}`);
     }
 
 }
