@@ -1,0 +1,97 @@
+<div class="w-full grid m-0 p-0 align-items-center h-full mt-3">
+    <form [formGroup]="form" class="w-11">
+        <p-card class="border-noround opacity-90" header="Perfil">
+            <div class="formgrid grid mt-3 col-12">
+                <div class="col-6 field">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="p-inputtext-sm" formControlName="nome" readonly
+                            style="cursor: not-allowed;">
+                        <label for="">Nome</label>
+                    </span>
+                </div>
+                <div class="col-6 field">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="p-inputtext-sm" formControlName="login" readonly
+                            style="cursor: not-allowed;">
+                        <label for="">Login</label>
+                    </span>
+                </div>
+            </div>
+            <div class="formgrid grid mt-3 col-12">
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="p-inputtext-sm" formControlName="email">
+                        <label for="">Email</label>
+                    </span>
+                </div>
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="listaSetores" [placeholder]="'Setor '" styleClass="p-inputtext-sm"
+                            inputId="dropdown" formControlName="idSetor" [filter]="true" [showClear]="true"
+                            (onChange)="onChangeSetor($event)">
+                        </p-dropdown>
+                        <label>Setor</label>
+                    </span>
+                </div>
+                <div *ngIf="outroSetor" class="col-4 field">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="p-inputtext-sm" formControlName="novoSetor">
+                        <label for="">Digite o nome do setor da sua empresa *</label>
+                    </span>
+                </div>
+            </div>
+            <div class="formgrid grid mt-3 col-12">
+                <div class="col-5 field">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="listaTamanhos" [placeholder]="'Tamanho da empresa'"
+                            styleClass="p-inputtext-sm" inputId="dropdown-tam" formControlName="tamanho"
+                            [showClear]="true">
+                        </p-dropdown>
+                        <label>Tamanho da empresa *</label>
+                    </span>
+                </div>
+            </div>
+            <div class="formgrid  mt-3 grid col-12">
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <p-password [toggleMask]="true" styleClass="w-full p-inputtext-sm p-input-icon-right"
+                            formControlName="novaSenha" promptLabel="Digite sua senha" weakLabel="Fraca"
+                            mediumLabel="Média" strongLabel="Forte">
+                            <ng-template pTemplate="footer">
+                                <p-divider></p-divider>
+                                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                    <li *ngFor="let validador of senhaValidators"
+                                        [style]="{'color' : validarSenha(validador)}">
+                                        {{validador.label}}
+                                    </li>
+                                </ul>
+                            </ng-template>
+                        </p-password>
+                        <label>Nova senha</label>
+                    </span>
+                </div>
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <p-password [toggleMask]="true" styleClass="w-full p-inputtext-sm p-input-icon-right"
+                            [feedback]="false" formControlName="confirmarSenha">
+                        </p-password>
+                        <label>Confirme sua senha</label>
+                    </span>
+                </div>
+            </div>
+            <div class="formgrid grid col-12 mt-3">
+                <div class="col-12 field">
+                    <p-editor [style]="{ height: '320px' }" formControlName="descricao"></p-editor>
+                </div>
+            </div>
+            <div class="col-12 formgrid grid flex justify-content-end mt-4 mb-0">
+                <div class="col-2 field mb-0">
+                    <button pButton class="p-button-raised p-button-sm" [style]="{'width':'100%'}" label="Salvar"
+                        (click)="salvar()">
+                    </button>
+                </div>
+
+            </div>
+        </p-card>
+    </form>
+</div>

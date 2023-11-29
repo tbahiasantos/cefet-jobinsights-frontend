@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarreiraModule } from './content/carreira/carreira.module';
+import { GerenciarEmpresaComponent } from './content/gerenciar-empresa/gerenciar-empresa.component';
+import { GerenciarEmpresaModule } from './content/gerenciar-empresa/gerenciar-empresa.module';
 import { IndexComponent } from './content/index/index.component';
 import { ParaEmpresasComponent } from './content/para-empresas/para-empresas.component';
 import { ConfirmationComponent } from './core/confirmation/confirmation.component';
@@ -10,6 +12,7 @@ import { RegistrarEmpresasComponent } from './core/registrar-empresas/registrar-
 import { PageNotFoundComponent } from './infra/404/page-not-found.component';
 import { AlunoGuard } from './infra/guard/aluno.guard';
 import { AuthGuard } from './infra/guard/auth.guard';
+import { EmpresaGuard } from './infra/guard/empresa.guard';
 
 const routes: Routes = [
   {
@@ -26,6 +29,11 @@ const routes: Routes = [
     path: 'carreira',
     loadChildren: () => import('./content/carreira/carreira.module').then(x => CarreiraModule),
     canActivate: [AlunoGuard]
+  },
+  {
+    path: 'gerenciar-empresa',
+    loadChildren: () => import('./content/gerenciar-empresa/gerenciar-empresa.module').then(x => GerenciarEmpresaModule),
+    canActivate: [EmpresaGuard]
   },
   {
     path: 'index',

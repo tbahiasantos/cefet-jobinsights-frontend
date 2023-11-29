@@ -27,4 +27,9 @@ export class UsuarioService extends AbstractComponentService<Usuario> {
         return this.http.post<Empresa>(url, entity);
     }
 
+    editarEmpresa(entity: Empresa): Observable<Empresa> {
+        const url = this.urlApi + this.path + AppConfig.settings.endpoints.editar + "/empresa";
+        return this.http.post<Empresa>(url, entity);
+    }
+
 }

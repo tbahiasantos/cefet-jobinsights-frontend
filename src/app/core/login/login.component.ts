@@ -75,7 +75,7 @@ export class LoginComponent {
         const tokenDTO: TokenDTO = this.tokenService.getTokenDTO();
         if (tokenDTO.verificado) {
           this.mensagemService.mostrarMensagemComRetorno("Sucesso", "Login realizado com sucesso!").then(value => {
-            this.router.navigateByUrl("/home");
+            this.router.navigateByUrl("/index");
           })
         } else {
           StorageService.removeToken();

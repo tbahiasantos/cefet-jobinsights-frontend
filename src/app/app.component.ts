@@ -17,7 +17,7 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.bgImage = bgService.getBackgroudByUrl(router.url);
-        if (this.router.url === "/404") {
+        if (this.router.url === "/404" || this.router.url.includes("gerenciar-empresa")) {
           this.canShowMenu = false;
         } else {
           this.canShowMenu = true;

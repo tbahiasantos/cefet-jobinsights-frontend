@@ -4,13 +4,15 @@ import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { PrimengModule } from 'src/app/infra/primeng/primeng.module';
 import { MenuNavegatorComponent } from './menu-navegator/menu-navegator.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuEmpresaComponent } from './menu-empresa/menu-empresa.component';
 
 
 
 @NgModule({
   declarations: [
     MenuUsuarioComponent,
-    MenuNavegatorComponent
+    MenuNavegatorComponent,
+    MenuEmpresaComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ], exports: [
     MenuUsuarioComponent,
-    MenuNavegatorComponent
+    MenuNavegatorComponent,
+    MenuEmpresaComponent
   ]
 })
 export class MenusModule { }
