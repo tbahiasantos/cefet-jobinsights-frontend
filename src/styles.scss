@@ -143,3 +143,8 @@ p-calendar>span>input:focus {
 button:disabled {
     cursor: not-allowed !important;
 }
+
+p-table>div.p-datatable.p-datatable-scrollable>div.p-datatable-wrapper {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+}

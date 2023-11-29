@@ -4,23 +4,23 @@
         <div class="formgrid mt-5 grid col-12 text-center">
             <div class="col-6 m-0 p-0 field grid align-items-center">
                 <div (click)="activeVisaoGeralView()"
-                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
-                    [class]="showVisaoGeral ? 'surface-hover opacity-100':''">
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                    [class]="showVisaoGeral ? 'opacity-100':''">
                     <span>Visão geral</span>
                 </div>
                 <div (click)="activeAvaliacaoesView()"
-                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
-                    [class]="showAvaliacaoes ? 'surface-hover opacity-100':''">
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                    [class]="showAvaliacaoes ? 'opacity-100':''">
                     <span>Avaliações</span>
                 </div>
                 <div (click)="activeVagasView()"
-                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200  mr-4"
-                    [class]="showVagas ? 'surface-hover opacity-100':''">
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card cursor-pointer opacity-90 border-round-sm border-200  mr-4"
+                    [class]="showVagas ? 'opacity-100':''">
                     <span>Vagas</span>
                 </div>
                 <div (click)="activeSalariosView()"
-                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card hover:surface-hover cursor-pointer opacity-90 border-round-sm border-200"
-                    [ngClass]="showSalarios ? 'surface-hover opacity-100':''">
+                    class="col-2 shadow-1 py-3 px-1 border-1 field surface-card cursor-pointer opacity-90 border-round-sm border-200"
+                    [ngClass]="showSalarios ? 'opacity-100':''">
                     <span>Salários</span>
                 </div>
             </div>
@@ -40,7 +40,7 @@
         <div class="formgrid mt-3 grid col-12">
             <div class="col-12 field m-0 p-0">
                 <app-visao-geral-empresa *ngIf="showVisaoGeral" [empresa]="empresa"></app-visao-geral-empresa>
-                <app-salarios-empresa *ngIf="showSalarios"></app-salarios-empresa>
+                <app-salarios-empresa *ngIf="showSalarios" [empresa]="empresa"></app-salarios-empresa>
                 <app-vagas-empresa *ngIf="showVagas"></app-vagas-empresa>
                 <app-avaliacoes-empresa *ngIf="showAvaliacaoes" [empresa]="empresa"></app-avaliacoes-empresa>
             </div>

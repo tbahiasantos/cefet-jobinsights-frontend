@@ -1,1 +1,51 @@
-<p>salarios-empresa works!</p>
+<div class="w-full grid justify-content-center align-items-center m-0 p-0 mt-2">
+    <div class="field col-12 m-0 p-0">
+        <p-card styleClass="w-full border-noround opacity-90 mb-0 pb-0" [header]="getHeaderText()">
+            <div [formGroup]="form"
+                class="formgrid grid mt-3 mb-0 pb-0 col-12 grid align-items-center justify-content-between">
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <input pInputText class="p-inputtext-sm" type="text" formControlName="cargo">
+                        <label>Cargo do funcionario</label>
+                    </span>
+                </div>
+                <div class="col-4 field grid justify-content-end mb-0 pb-0">
+                    <button pButton label="Buscar" class="p-button-sm border-round-sm p-button-raised"
+                        (click)="pesquisar()"></button>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div class="field col-12 m-0 p-0 mt-3">
+        <p-card styleClass="w-full border-noround m-0 p-0">
+            <div class="formgrid grid mb-0 pb-0 col-12 justify-content-center">
+                <p-table [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5, 10, 20]" [paginator]="true"
+                    [value]="listaSalarios" [scrollable]="true" scrollHeight="400px"
+                    [tableStyle]="{ 'min-width': '70rem', 'max-width':'100rem'}">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 50%;">Cargo</th>
+                            <th style="width: 50%;">Média Salarial</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-salario>
+                        <tr>
+                            <td>
+                                <p class="font-bold text-green-600">{{salario.cargo}}</p>
+                                <p>{{salario.total}} salários enviados</p>
+                            </td>
+                            <td>
+                                <span>{{formatSalario(salario.maior)}} - {{formatSalario(salario.menor)}}</span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="8">Nenhum salário foi encontrado</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-card>
+    </div>
+</div>
