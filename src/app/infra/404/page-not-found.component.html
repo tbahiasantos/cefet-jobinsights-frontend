@@ -1,1 +1,25 @@
-<p>page-not-found works!</p>
+<div class="col-12 grid m-0 p-0 align-items-center justify-content-center h-screen">
+    <p-card class="w-full h-full opacity-90">
+        <div class="formgrid grid col-12 field text-center align-items-center" style="height: 90vh;">
+            <div class="col-12 field">
+                <span class="font-bold text-8xl">404</span>
+                <p>
+                    Pagina nao encontrada
+                </p>
+            </div>
+            <div class="col-12 field">
+                <p class="font-bold ">
+                    Desculpe, não foi possível localizar a página que você esta tentando acessar
+                </p>
+                <p>
+                    Clique para voltar para um caminho conhecido
+                </p>
+                <div class="col-12 grid justify-content-center mt-4">
+                    <div class="col-4 field">
+                        <p-button label="Voltar" [text]="true" [raised]="true" (onClick)="voltar()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-card>
+</div>

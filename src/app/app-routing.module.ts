@@ -29,30 +29,34 @@ const routes: Routes = [
   },
   {
     path: 'index',
-    component: IndexComponent
+    component: IndexComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'confirmation',
-    component: ConfirmationComponent
+    component: ConfirmationComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'para-empresas',
-    component: ParaEmpresasComponent
+    component: ParaEmpresasComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'para-empresas/registrar',
-    component: RegistrarEmpresasComponent
+    component: RegistrarEmpresasComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '404',
+    pathMatch: 'full',
+    component: PageNotFoundComponent
   },
   {
     path: '',
     redirectTo: 'index',
     pathMatch: 'full'
-  },
-  {
-    path: '**',
-    pathMatch: 'full',
-    component: PageNotFoundComponent
-  },
+  }
 ];
 
 @NgModule({

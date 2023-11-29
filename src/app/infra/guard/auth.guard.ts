@@ -15,7 +15,7 @@ export class AuthGuard {
         if (!this.tokenService.isLoggin()) {
             return true;
         } else {
-            this.router.navigate(['/index']);
+            this.router.navigate(['/carreira']);
             return false;
         }
     }

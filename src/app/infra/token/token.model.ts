@@ -6,4 +6,5 @@ export class TokenDTO {
     username: string = '';
     email: string = "";
     verificado: boolean = false;
+    role: string = "";
 }

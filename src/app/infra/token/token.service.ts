@@ -43,4 +43,9 @@ export class TokenService {
         return this.getTokenDTO().username;
     }
 
+    public logout() {
+        StorageService.removeToken();
+        window.location.reload();
+    }
+
 }

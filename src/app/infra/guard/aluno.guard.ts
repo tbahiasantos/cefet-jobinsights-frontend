@@ -12,7 +12,7 @@ export class AlunoGuard {
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        if (this.tokenService.isLoggin()) {
+        if (this.tokenService.isLoggin() && this.tokenService.getTokenDTO().role === "ALUNO_ROLE") {
             return true;
         } else {
             this.router.navigate(['/login']);
