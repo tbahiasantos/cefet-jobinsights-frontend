@@ -28,8 +28,15 @@
         style="min-height: 35rem !important; max-height: 35rem !important;">
         <div *ngIf="vaga.id !== 0" class="col-12 field text-900 p-5">
             <div class="formgrid grid col-12">
-                <div class="col-12 field">
+                <div class="col-11 field">
                     <span class="text-xl">{{vaga.nomeEmpresa}}</span>
+                </div>
+                <div *ngIf="canEditVaga()" class="col-1 field">
+                    <span pTooltip="Editar vaga" (click)="habilitarEdicaoVaga()">
+                        <i
+                            class="pi pi-pencil p-2 border-circle hover:shadow-2 transition-all transition-duration-100 hover:border-300 cursor-pointer">
+                        </i>
+                    </span>
                 </div>
             </div>
             <div class="formgrid grid col-12">
@@ -51,3 +58,5 @@
         </div>
     </div>
 </div>
+<app-editar-vaga [display]="displayEditVaga" (exit)="displayEditVaga = false" [idVaga]="idVaga"
+    (vagaEditada)="vagaEditada($event)"></app-editar-vaga>

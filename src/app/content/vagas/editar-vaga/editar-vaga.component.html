@@ -1,0 +1,57 @@
+<p-dialog header="Criar Vaga" [(visible)]="display" (onHide)="fecharModal()" (onShow)="inicializar()" [modal]="true"
+    [style]="{'width': '50vw', 'min-height': '40vw'}" [draggable]="false" [resizable]="false"
+    [breakpoints]="{'960px': '75vw'}">
+    <form [formGroup]="form">
+        <div class="formgrid grid col-12 mt-5">
+            <div class="col-6 field">
+                <span class="p-float-label">
+                    <p-dropdown [options]="listaCargos" [placeholder]="'Cargo exercido'" styleClass="p-inputtext-sm"
+                        inputId="dropdown" formControlName="idCargo" [filter]="true" [showClear]="true"
+                        (onChange)="onChangeCargo($event)">
+                    </p-dropdown>
+                    <label>Cargo</label>
+                </span>
+            </div>
+            <div *ngIf="outroCargo" class="col-6 field">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="p-inputtext-sm" formControlName="novoCargo">
+                    <label for="">Digite o cargo da vaga</label>
+                </span>
+            </div>
+        </div>
+        <div class="formgrid grid mt-3">
+            <div class="col-6 field">
+                <span class="p-float-label">
+                    <p-dropdown [options]="listaTipoVaga" [placeholder]="'Tipo de vaga'" styleClass="p-inputtext-sm"
+                        inputId="tipoVaga" formControlName="tipoVaga" [showClear]="true">
+                    </p-dropdown>
+                    <label>Tipo de vaga</label>
+                </span>
+            </div>
+            <div class="col-3 field">
+                <span class="p-float-label">
+                    <p-inputNumber styleClass="p-inputtext-sm w-full" formControlName="salario" inputId="currency-us"
+                        mode="currency" currency="BRL" locale="pt-BR">
+                    </p-inputNumber>
+                    <label>Salário</label>
+                </span>
+            </div>
+            <div class="col-3 field">
+                <p-checkbox label="Vaga ativa?" formControlName="vagaAtiva" [binary]="true">
+                </p-checkbox>
+            </div>
+        </div>
+        <div class="formgrid grid mt-3">
+            <div class="col-12 field">
+                <p-editor [style]="{ height: '300px' }" formControlName="descricao"></p-editor>
+            </div>
+        </div>
+        <div class="formgrid grid mt-4">
+            <div class="col-12 field grid justify-content-end">
+                <div class="col-2 field">
+                    <button pButton label="Salvar" [disabled]="!form.valid" (click)="salvar()"></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</p-dialog>

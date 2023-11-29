@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { Vaga, VagaResponseDTO } from 'src/app/model/entity/vaga.model';
 import { vagaService } from 'src/app/service/vaga.service';
 import { formatDate } from '@angular/common';
+import { TokenService } from 'src/app/infra/token/token.service';
 
 export interface VAgaDTO {
   empresa: string;
@@ -17,9 +18,12 @@ export class VagasComponent {
 
   vaga: Vaga = new Vaga();
   @Input() vagas: VagaResponseDTO[] = [];
+  displayEditVaga: boolean = false;
+  idVaga: number = 0;
 
   constructor(
-    private readonly vagaService: vagaService
+    private readonly vagaService: vagaService,
+    private readonly tokenService: TokenService
   ) {
 
   }
@@ -53,6 +57,18 @@ export class VagasComponent {
     return `R$${vaga.salario?.toLocaleString('pt', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
   }
 
+  canEditVaga(): boolean {
+    return this.vaga.idEmpresa === this.tokenService.getTokenDTO().id && this.tokenService.getTokenDTO().role === "EMPRESA_ROLE";
+  }
+
+  habilitarEdicaoVaga() {
+    this.idVaga = this.vaga.id;
+    this.displayEditVaga = true;
+  }
+
+  vagaEditada(vaga: Vaga) {
+    window.location.reload();
+  }
 
 
 }

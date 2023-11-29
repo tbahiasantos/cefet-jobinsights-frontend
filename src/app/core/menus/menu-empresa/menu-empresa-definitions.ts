@@ -1,4 +1,5 @@
 import { MenuItem } from "primeng/api";
+import { StorageService } from "src/app/infra/storage/storage.service";
 
 export const ITEMS_MENU_EMPRESA: MenuItem[] = [
     {
@@ -12,13 +13,5 @@ export const ITEMS_MENU_EMPRESA: MenuItem[] = [
     {
         label: 'Vagas',
         routerLink: '/gerenciar-empresa/vagas'
-    },
-    {
-        label: 'Sair',
-        icon: 'pi pi-sign-out',
-        command(event) {
-
-        },
-
-    },
+    }
 ];

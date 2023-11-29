@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { VagasComponent } from './vagas.component';
 import { PrimengModule } from 'src/app/infra/primeng/primeng.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditarVagaComponent } from './editar-vaga/editar-vaga.component';
 
 
 
 @NgModule({
   declarations: [
-    VagasComponent
+    VagasComponent,
+    EditarVagaComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
-    VagasComponent
+    VagasComponent,
+    EditarVagaComponent
   ]
 })
 export class VagasModule { }

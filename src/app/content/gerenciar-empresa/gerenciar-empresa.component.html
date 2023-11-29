@@ -3,6 +3,10 @@
         <app-menu-empresa></app-menu-empresa>
     </div>
     <div class="col-10 field m-0 p-0">
+        <div [formGroup]="form" class="col-1 fixed top-0 right-0 pt-3 pr-0 mr-0 z-5">
+            <p-inputSwitch styleClass="p-0 m-0" [pTooltip]="getToolTipText()" formControlName="isBlackTheme"
+                (onChange)="changeTheme()"></p-inputSwitch>
+        </div>
         <router-outlet></router-outlet>
     </div>
 
