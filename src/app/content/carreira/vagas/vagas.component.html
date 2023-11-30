@@ -1,0 +1,95 @@
+<div class="w-full grid m-0 p-0 align-items-center h-full mt-3 justify-content-center">
+    <div [formGroup]="form" class="col-11 z-5">
+        <p-card class="border-noround opacity-90">
+            <div class="formgrid grid mt-3 col-12">
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="p-inputtext-sm" formControlName="cargo">
+                        <label for="">Cargo</label>
+                    </span>
+                </div>
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="p-inputtext-sm" formControlName="empresa">
+                        <label for="">Empresa</label>
+                    </span>
+                </div>
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="notasList" [placeholder]="'Avaliação da empresa'"
+                            styleClass="p-inputtext-sm" inputId="dd-nota" formControlName="notaEmpresa"
+                            [showClear]="true">
+                            <ng-template pTemplate="selectedItem">
+                                <p-rating formControlName="notaEmpresa" [readonly]="true" [cancel]="false"></p-rating>
+                            </ng-template>
+                            <ng-template let-nota pTemplate="item">
+                                <div [formGroup]="starForm" class="m-0 p-0 w-full">
+                                    <span>
+                                        <p-rating [formControlName]="nota.value" [readonly]="true" [cancel]="false">
+                                        </p-rating> ou mais
+                                    </span>
+                                </div>
+                            </ng-template>
+                        </p-dropdown>
+                        <label>Avaliação da empresa</label>
+                    </span>
+                </div>
+            </div>
+            <div class="formgrid mt-3 grid col-12">
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="listaTipoVaga" [placeholder]="'Tipo de vaga'" styleClass="p-inputtext-sm"
+                            inputId="tipoVaga" formControlName="tipoVaga" [showClear]="true">
+                        </p-dropdown>
+                        <label>Tipo de vaga</label>
+                    </span>
+                </div>
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <p-dropdown [options]="listaRange" [placeholder]="'Postado a'" styleClass="p-inputtext-sm"
+                            inputId="tipoVaga" formControlName="rangeDate" [showClear]="true">
+                        </p-dropdown>
+                        <label>Postado a</label>
+                    </span>
+                </div>
+                <div class="col-4 field">
+                    <span class="p-float-label">
+                        <p-inputNumber styleClass="p-inputtext-sm w-full" formControlName="salario"
+                            inputId="currency-us" mode="currency" currency="BRL" locale="pt-BR">
+                        </p-inputNumber>
+                        <label>Salário</label>
+                    </span>
+                </div>
+            </div>
+            <div class="formgrid mt-3 grid col-12">
+                <div class="col-12 field grid justify-content-end">
+                    <div class="col-2 field">
+                        <button pButton label="Pesquisar" (click)="pesquisar()"></button>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div *ngIf="vagas.length === 0" class="col-11">
+        <p-card class="border-noround opacity-90" header="Vagas">
+            <div class="col-12 h-30rem grid align-items-center">
+                <div class="formgrid grid mt-3 col-12 justify-content-center align-items-center text-center">
+                    <div class="col-12 field">
+                        <span class="text-xl">
+                            Nenhuma vaga encontrada
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div *ngIf="vagas.length > 0" class="col-11">
+        <p-card class="border-noround opacity-90" header="Vagas">
+            <div class="formgrid grid mt-3 col-12">
+                <div class="col-12 field">
+                    <app-lista-vagas [vagas]="vagas"></app-lista-vagas>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>

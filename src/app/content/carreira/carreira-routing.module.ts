@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { EmpresaDetalheComponent } from "../empresa/empresa-detalhe/empresa-detalhe.component";
 import { EmpresaComponent } from "../empresa/empresa.component";
-import { VagasComponent } from "../vagas/vagas.component";
+import { VagasComponent } from "./vagas/vagas.component";
 import { CarreiraComponent } from "./carreira.component";
 
 const routes: Routes = [

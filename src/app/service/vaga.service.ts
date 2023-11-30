@@ -19,4 +19,9 @@ export class vagaService extends AbstractComponentService<Vaga> {
         return this.http.post<VagaResponseDTO[]>(url, filter);
     }
 
+    buscarByUser(filter: VagaFilterDTO): Observable<VagaResponseDTO[]> {
+        const url = this.urlApi + this.path + AppConfig.settings.endpoints.pesquisar + "/user";
+        return this.http.post<VagaResponseDTO[]>(url, filter);
+    }
+
 }
