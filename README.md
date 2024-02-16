@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JobinsightsFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
@@ -26,3 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+=======
+# cefet-jobinsights-frontend
+Frontend do projeto realizado para a disciplina de Interação Humano Computador (IHC).
+>>>>>>> d1cd95537e9857bc8b5b5ba0f7198f3fef32941c
